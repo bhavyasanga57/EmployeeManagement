@@ -38,6 +38,7 @@ Please ensure your solution addresses the following ASP.NET Core MVC concepts:
     View Data: Utilize ViewData to pass data from the controller to the view.
     View Bag: Similar to ViewData, but provides a dynamic feature for passing data.   
     HttpContext: Work with HttpContext to access HTTP-specific context.
+    Display List of Records Using AJAX Call: Fetch and display data dynamically on a web page using an AJAX request.
 
 Instructions
 
