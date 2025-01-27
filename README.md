@@ -26,7 +26,8 @@ Key Concepts
 
 Please ensure your solution addresses the following ASP.NET Core MVC concepts:
 
-    Model: Define and use models to pass data between views and controllers.
+    Model: Define and use models to pass data between controllers and backend(InMemory,Json file).
+    ViewModel: Define and use view models to pass data between views and controllers.
     View: Create views to generate HTML output.
     Controller: Implement controllers to handle user requests.
     Routing: Configure routes to control how web requests are handled.
