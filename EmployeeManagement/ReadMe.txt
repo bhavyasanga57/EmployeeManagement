@@ -1,4 +1,4 @@
-﻿Objectives
+Objectives
 
 Your task is to enhance this basic ASP.NET Core 3.1 MVC project by implementing the following functionalities:
 1. Controller Action Methods
@@ -26,7 +26,8 @@ Key Concepts
 
 Please ensure your solution addresses the following ASP.NET Core MVC concepts:
 
-    Model: Define and use models to pass data between views and controllers.
+    Model: Define and use models to pass data between controllers and backend(InMemory,Json file).
+    ViewModel: Define and use view models to pass data between views and controllers.
     View: Create views to generate HTML output.
     Controller: Implement controllers to handle user requests.
     Routing: Configure routes to control how web requests are handled.
@@ -38,6 +39,7 @@ Please ensure your solution addresses the following ASP.NET Core MVC concepts:
     View Data: Utilize ViewData to pass data from the controller to the view.
     View Bag: Similar to ViewData, but provides a dynamic feature for passing data.   
     HttpContext: Work with HttpContext to access HTTP-specific context.
+    Display List of Records Using AJAX Call: Fetch and display data dynamically on a web page using an AJAX request.
 
 Instructions
 
@@ -58,5 +60,4 @@ Your submission will be evaluated based on:
 
 
 Good luck with your project, and we look forward to reviewing your submission!
-
 
