@@ -1,0 +1,11 @@
+﻿@model IEnumerable<EmployeeViewModel>
+
+@{
+    ViewData["Title"] = "Employee List";
+}
+
+<h2>@ViewData["Message"]</h2>
+<p>Total Employees: @ViewBag.TotalEmployees</p>
+
+
+@await Html.PartialAsync("_EmployeeListPartial", Model)

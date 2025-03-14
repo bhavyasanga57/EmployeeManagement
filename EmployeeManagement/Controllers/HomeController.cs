@@ -16,15 +16,13 @@ namespace EmployeeManagement.Controllers
         public ViewResult Index()
         {
             var model = _empRepo.GetAllEmployee();
-            
+
             return View(model);
         }
 
         public ViewResult Details(int Id)
         {
             var model = _empRepo.GetEmployee(Id);
-
-            
             var _empVM = new EmployeeViewModel()
             {
                 Id = model.Id,
@@ -32,57 +30,77 @@ namespace EmployeeManagement.Controllers
                 Email = model.Email,
                 Department = model.Department
             };
-            
+
             return View(_empVM);
         }
 
         [HttpGet]
-        public ViewResult Edit(int?Id)
+        public ViewResult Edit(int? Id)
         {
             if (Id == null)
             {
                 return View(new Employee());
             }
-            else
+
+            var empModel = _empRepo.GetEmployee(Id.Value);
+            if (empModel == null)
             {
-                //get employee details
-                var _empModel = _empRepo.GetEmployee(1);
-                return View(_empModel);
+                return View("NotFound");
             }
+            return View(empModel);
         }
 
         [HttpPost]
         public IActionResult Edit(Employee employeeModel)
         {
-            if (employeeModel.Id > 0 )
+            if (!ModelState.IsValid)
             {
-                //update employee
-                return View();
+                return View(employeeModel);
+            }
+            if (employeeModel.Id > 0)
+            {
+             _empRepo.Update(employeeModel);
             }
             else
             {
-                //add employee
-                return View();
-            }           
+             _empRepo.Add(employeeModel);
+            }
 
-            //save changes
+            return RedirectToAction("Index");
 
-            //if changes saved return to index
+           }
 
-            //if changes failed return employ edit view
-
-        }
-
-        public IActionResult Remove(int Id)
+        [HttpGet]
+        public IActionResult Delete (int Id)
         {
-            //Remove Record
+            var employee = _empRepo.GetEmployee(Id);
+            if (employee == null)
+            {
+                return NotFound();
+            }
 
-            //Save changes
+            var employeeVM = new EmployeeViewModel()
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Email = employee.Email,
+                Department = employee.Department
+            };
 
-            //Redirect to index
+            return View(employeeVM);
+        }
+        [HttpPost]
+        public IActionResult DeleteConfirm(int Id)
+        {
+
+            var deletedEmployee = _empRepo.Remove(Id);
+            if (deletedEmployee == null)
+            {
+                return NotFound();
+            }
             return RedirectToAction("Index");
         }
 
-        
+
     }
 }

@@ -8,11 +8,12 @@ namespace EmployeeManagement.Models
 {
     public class MockEmployeeRepository 
     {
-        private readonly List<Employee> _empList;
+        private static List<Employee> _empList = new List<Employee>();
 
         public MockEmployeeRepository()
         {
-            _empList = new List<Employee>()
+             
+           _empList = new List<Employee>()
 
             {
                 new Employee(){Id=1, Name="Mark", Department =Dept.IT, Email="Mark@hotmil.com"},
@@ -56,13 +57,12 @@ namespace EmployeeManagement.Models
         public Employee Remove(int Id)
         {
             var EmpRemove = GetEmployee(Id);
-
-            if (EmpRemove !=null)
+            if (EmpRemove != null)
             {
-            _empList.Remove(EmpRemove);
+                _empList.Remove(EmpRemove);
+                return EmpRemove;
             }
-
-            return EmpRemove;
+            return null;
         }
 
     }

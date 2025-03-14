@@ -1,0 +1,21 @@
+﻿@model IEnumerable<EmployeeViewModel>
+
+<table id="employeeTable" border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Department</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model)
+        {
+            <tr>
+                <td>@emp.Name</td>
+                <td>@emp.Email</td>
+                <td>@emp.Department</td>
+            </tr>
+        }
+    </tbody>
+</table>
